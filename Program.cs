@@ -1,83 +1,75 @@
-﻿namespace _1050_Assignment_2
+﻿namespace Assignment_5
 {
     class Program
     {
         static void Main(string[] args)
-
         {
-            #region Part 1
-            string x = "[Information for p1]";
-            System.Console.WriteLine(x);
-            System.Console.ReadKey();
-
-            Person p1 = new Person
             {
-                FirstName = "Alex",
-                LastName = "Jones"
-            };
-            System.Console.Write(p1.FullName());
-            p1.Age = 23;
-            System.Console.Write(p1.Age);
-
-            p1.Spouse = new Person();
-            p1.Spouse.FirstName = System.Console.ReadLine();
-            p1.Spouse.LastName = p1.LastName;
-            System.Console.Write("Jane         Age: ");
-            p1.Spouse.Age = 34;
-            System.Console.Write(p1.Spouse.Age);
-            #endregion
-
-            #region Part 2
-            string y = " ";
-            System.Console.WriteLine(y);
-            string c = " ";
-            System.Console.WriteLine(c);
-            string b = "[Information for p2] ";
-            System.Console.WriteLine(b);
-            System.Console.ReadKey();
-
-            Person p2 = new Person
-            {
-                FirstName = "Percy",
-                LastName = "Blue"
-            };
-            System.Console.Write(p2.FullName());
-            p2.Age = 65;
-            System.Console.Write(p2.Age);
-
-            p2.Spouse = new Person();
-            p2.Spouse.FirstName = System.Console.ReadLine();
-            p2.Spouse.LastName = p2.LastName;
-            System.Console.Write("Molly        Age: ");
-            p2.Spouse.Age = 54;
-            System.Console.Write(p2.Spouse.Age);
-            #endregion
-
-            #region Part 3
-            string z = " ";
-            System.Console.WriteLine(z);
-            string f = " ";
-            System.Console.WriteLine(f);
-            string g = "[Print Results]";
-            System.Console.WriteLine(g);
-            System.Console.ReadKey();
-
-            Person.SumOfAllAges = 176.0;
-            System.Console.WriteLine("Alex, Jones" + "(23)");
-            System.Console.WriteLine("Jane, Jones" + "(34)");
-            System.Console.WriteLine("Percy, Blue" + "(65)");
-            System.Console.WriteLine("Molly, Blue" + "(54)");
-
-            string l = " ";
-            System.Console.WriteLine(l);
-
-            System.Console.WriteLine("Average Age = 44");
-            System.Console.ReadKey();
-
-
-            #endregion
-
+                System.Console.WriteLine("Almost Chess");
+                string[][] board = new string[8][];
+                for (int i = 0; i < 8; i++)
+                {
+                    System.Console.WriteLine("+---+---+---+---+---+---+---+---+");
+                    board[i] = new string[8];
+                    for (int j = 0; j < 8; j++)
+                    {
+                        board[i][j] = "  ";
+                        if (i <= 1 || i >= 6)
+                        {
+                            board[i][j] = "O ";
+                        }
+                        System.Console.Write("| " + board[i][j]);
+                    }
+                    System.Console.WriteLine("|");
+                }
+                System.Console.WriteLine("+---+---+---+---+---+---+---+---+");
+                System.Console.WriteLine(" ");
+                int cordx = 0;
+                int cordy = 0;
+                int destx = 0;
+                int desty = 0;
+                while (cordx <= 7 && cordx >= 0 && cordy <= 7 && cordy >= 0 && destx <= 7 && destx >= 0 && desty <= 7 && desty >= 0)
+                {
+                    System.Console.WriteLine("Enter your coordinates");
+                    System.Console.WriteLine("Enter 0-7");
+                    System.Console.WriteLine();
+                    System.Console.Write("X-Coordinate  :   ");
+                    cordx = int.Parse(System.Console.ReadLine());
+                    System.Console.WriteLine();
+                    System.Console.Write("Y-Coordinate  :   ");
+                    cordy = int.Parse(System.Console.ReadLine());
+                    System.Console.WriteLine();
+                    System.Console.Write("X-Destination:   ");
+                    destx = int.Parse(System.Console.ReadLine());
+                    System.Console.WriteLine();
+                    System.Console.Write("Y-Destination:   ");
+                    desty = int.Parse(System.Console.ReadLine());
+                    System.Console.WriteLine();
+                    System.Console.Clear();
+                    if (cordx <= 7 && cordx >= 0 && cordy <= 7 && cordy >= 0 && destx <= 7 && destx >= 0 && desty <= 7 && desty >= 0)
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            System.Console.WriteLine("+---+---+---+---+---+---+---+---+");
+                            board[i] = new string[8];
+                            for (int j = 0; j < 8; j++)
+                            {
+                                board[i][j] = "  ";
+                                if (i <= 1 || i >= 6)
+                                {
+                                    board[i][j] = "O ";
+                                }
+                                board[cordx][cordy] = "  ";
+                                board[destx][desty] = "O ";
+                                System.Console.Write("| " + board[i][j]);
+                            }
+                            System.Console.WriteLine("|");
+                        }
+                        System.Console.WriteLine("+---+---+---+---+---+---+---+---+");
+                    }
+                }
+                System.Console.ReadKey();
+            }
         }
-
     }
 }
